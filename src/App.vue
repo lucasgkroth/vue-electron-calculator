@@ -5,6 +5,23 @@
   </div>
 </template>
 
+<script>
+const electron = require("electron");
+
+window.electron;
+
+export default {
+  mounted: function () {
+    electron.ipcRenderer.on("goToHome", () => {
+      this.$router.push("/");
+    });
+    electron.ipcRenderer.on("goToAbout", () => {
+      this.$router.push("/about");
+    });
+  },
+};
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
