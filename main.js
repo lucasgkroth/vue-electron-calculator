@@ -26,42 +26,8 @@ function createWindow() {
     })
 }
 
-function createMenu() {
-
-    var menu = Menu.buildFromTemplate([
-        {
-            label: 'Menu',
-            submenu: [
-                {
-                    label: 'Home',
-                    click() {
-                        console.log("Navigate to Home");
-                        mainWindow.webContents.send('goToHome');
-                    }
-
-                },
-                {
-                    label: 'About',
-
-                    click() {
-                        console.log("Navigate to About");
-                        mainWindow.webContents.send('goToAbout');
-                    }
-                },
-                {
-                    label: 'Exit',
-                    click() {
-                        app.quit()
-                    }
-                }
-            ]
-        }
-    ])
-
-    Menu.setApplicationMenu(menu);
-}
 console.log(app);
-app.on('ready', createWindow, createMenu)
+app.on('ready', createWindow)
 
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit()
